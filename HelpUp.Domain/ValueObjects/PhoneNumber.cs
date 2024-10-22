@@ -9,4 +9,9 @@ public class PhoneNumber : ValueObject
     }
 
     public string Number { get; private set; }
+
+    public override string ToString()
+    {
+        return Number;
+    }
 }

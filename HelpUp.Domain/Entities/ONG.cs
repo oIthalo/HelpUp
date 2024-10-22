@@ -4,7 +4,9 @@ namespace HelpUp.Domain.Entities;
 
 public class ONG : Entity
 {
-    public ONG(Name name, Description description, string cNPJ, string cEP, Address address, string foundationDate, PhoneNumber contactNumber, Email email, string category, string founder, List<Campaign> campaigns)
+    private readonly IList<Campaign> _campaigns;
+
+    public ONG(EntityName name, Description description, string cNPJ, string cEP, Address address, string foundationDate, PhoneNumber contactNumber, Email email, string category, string founder)
     {
         Name = name;
         Description = description;
@@ -16,10 +18,10 @@ public class ONG : Entity
         Email = email;
         Category = category;
         Founder = founder;
-        Campaigns = new List<Campaign>();
+        _campaigns = new List<Campaign>();
     }
 
-    public Name Name { get; private set; }
+    public EntityName Name { get; private set; }
     public Description Description { get; private set; }
     public string CNPJ { get; private set; }
     public string CEP { get; private set; }
@@ -29,5 +31,10 @@ public class ONG : Entity
     public Email Email { get; private set; }
     public string Category { get; private set; }
     public string Founder { get; private set; }
-    public List<Campaign> Campaigns { get; private set; }
+    public IReadOnlyCollection<Campaign> Campaigns => _campaigns.ToArray();
+
+    public override string ToString()
+    {
+        return $"{Name}";
+    }
 }

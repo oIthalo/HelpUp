@@ -9,4 +9,9 @@ public class Email : ValueObject
     }
 
     public string EmailAddress { get; private set; }
+
+    public override string ToString()
+    {
+        return EmailAddress;
+    }
 }

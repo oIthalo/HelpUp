@@ -4,22 +4,29 @@ namespace HelpUp.Domain.Entities;
 
 public class Campaign : Entity
 {
-    public Campaign(Name name, Description description, DateTime startDate, DateTime endDate, decimal fundraisingGoal, decimal amountRaised, List<Donation> donations)
+    private readonly IList<Donation> _donations;
+
+    public Campaign(EntityName name, Description description, DateTime startDate, DateTime endDate, decimal fundraisingGoal, decimal amountRaised)
     {
         Name = name;
         Description = description;
-        StartDate = startDate;
+        StartDate = DateTime.Now;
         EndDate = endDate;
         FundraisingGoal = fundraisingGoal;
         AmountRaised = amountRaised;
-        Donations = new List<Donation>();
+        _donations = new List<Donation>();
     }
 
-    public Name Name { get; private set; }
+    public EntityName Name { get; private set; }
     public Description Description { get; private set; }
     public DateTime StartDate { get; private set; }
     public DateTime EndDate { get; private set; }
     public decimal FundraisingGoal { get; private set; }
     public decimal AmountRaised { get; private set; }
-    public List<Donation> Donations { get; private set; }
+    public IReadOnlyCollection<Donation> Donations => _donations.ToArray();
+
+    public override string ToString()
+    {
+        return $"{Name}, {Description}";
+    }
 }

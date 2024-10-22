@@ -4,8 +4,8 @@ public abstract class Entity
 {
     public Entity()
     {
-        Id = Guid.NewGuid();
+        Id = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 16);
     }
 
-    public Guid Id { get; set; }
+    public string Id { get; set; }
 }

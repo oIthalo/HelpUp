@@ -1,9 +1,9 @@
 ﻿using HelpUp.Shared.ValueObject;
 namespace HelpUp.Domain.ValueObjects;
 
-public class Name : ValueObject
+public class PersonName : ValueObject
 {
-    public Name(string firstName, string lastName)
+    public PersonName(string firstName, string lastName)
     {
         FirstName = firstName;
         LastName = lastName;
@@ -11,4 +11,9 @@ public class Name : ValueObject
 
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
+
+    public override string ToString()
+    {
+        return $"{FirstName} {LastName}";
+    }
 }
