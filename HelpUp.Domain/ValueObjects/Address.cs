@@ -18,7 +18,8 @@ public class Address : ValueObject
             .IsNotNullOrEmpty(City, "Address.City", "A cidade não pode ser vazia")
             .IsNotNullOrEmpty(Street, "Address.Street", "A rua não pode ser vazia")
             .IsNotNullOrEmpty(Neighborhood, "Address.Neighborhood", "O bairro não pode estar vazio")
-            .IsNotNullOrEmpty(State, "Address.State", "O estado não pode estar vazio"));
+            .IsNotNullOrEmpty(State, "Address.State", "O estado não pode estar vazio")
+            .IsGreaterThan(Number, 0, "Address.Number", "O número residencial não pode ser negativo"));
     }
 
     public string City { get; private set; }
