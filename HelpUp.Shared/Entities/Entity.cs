@@ -1,6 +1,7 @@
-﻿namespace HelpUp.Shared.Entities;
+﻿using Flunt.Notifications;
+namespace HelpUp.Shared.Entities;
 
-public abstract class Entity
+public abstract class Entity : Notifiable<Notification>
 {
     public Entity()
     {

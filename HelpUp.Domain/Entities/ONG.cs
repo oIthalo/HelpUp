@@ -6,7 +6,7 @@ public class ONG : Entity
 {
     private readonly IList<Campaign> _campaigns;
 
-    public ONG(EntityName name, Description description, string cNPJ, string cEP, Address address, string foundationDate, PhoneNumber contactNumber, Email email, string category, string founder)
+    public ONG(SingleName name, Description description, string cNPJ, string cEP, Address address, string foundationDate, PhoneNumber contactNumber, Email email, string category, string founder)
     {
         Name = name;
         Description = description;
@@ -21,7 +21,7 @@ public class ONG : Entity
         _campaigns = new List<Campaign>();
     }
 
-    public EntityName Name { get; private set; }
+    public SingleName Name { get; private set; }
     public Description Description { get; private set; }
     public string CNPJ { get; private set; }
     public string CEP { get; private set; }

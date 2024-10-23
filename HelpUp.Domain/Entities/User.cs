@@ -6,7 +6,7 @@ public class User : Entity
 {
     private readonly IList<Donation> _donations;
 
-    public User(PersonName name, Email email, string password, PhoneNumber phoneNumber, Address address)
+    public User(FullName name, Email email, string password, PhoneNumber phoneNumber, Address address)
     {
         Name = name;
         Email = email;
@@ -16,7 +16,7 @@ public class User : Entity
         _donations = new List<Donation>();
     }
 
-    public PersonName Name { get; private set; }
+    public FullName Name { get; private set; }
     public Email Email { get; private set; }
     public string Password { get; private set; }
     public PhoneNumber PhoneNumber { get; private set; }

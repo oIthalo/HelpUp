@@ -6,7 +6,7 @@ public class Campaign : Entity
 {
     private readonly IList<Donation> _donations;
 
-    public Campaign(EntityName name, Description description, DateTime startDate, DateTime endDate, decimal fundraisingGoal, decimal amountRaised)
+    public Campaign(SingleName name, Description description, DateTime startDate, DateTime endDate, decimal fundraisingGoal, decimal amountRaised)
     {
         Name = name;
         Description = description;
@@ -17,7 +17,7 @@ public class Campaign : Entity
         _donations = new List<Donation>();
     }
 
-    public EntityName Name { get; private set; }
+    public SingleName Name { get; private set; }
     public Description Description { get; private set; }
     public DateTime StartDate { get; private set; }
     public DateTime EndDate { get; private set; }

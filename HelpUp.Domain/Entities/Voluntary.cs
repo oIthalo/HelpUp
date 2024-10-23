@@ -4,7 +4,7 @@ namespace HelpUp.Domain.Entities;
 
 public class Voluntary : Entity
 {
-    public Voluntary(PersonName name, Email email, PhoneNumber phoneNumber, IList<ONG> oNGS)
+    public Voluntary(FullName name, Email email, PhoneNumber phoneNumber, IList<ONG> oNGS)
     {
         Name = name;
         Email = email;
@@ -12,7 +12,7 @@ public class Voluntary : Entity
         ONGS = new List<ONG>();
     }
 
-    public PersonName Name { get; private set; }
+    public FullName Name { get; private set; }
     public Email Email { get; private set; }
     public PhoneNumber PhoneNumber { get; private set; }
     public IReadOnlyCollection<ONG> ONGS { get; private set; }

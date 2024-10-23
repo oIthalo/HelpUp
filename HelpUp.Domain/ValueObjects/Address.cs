@@ -1,15 +1,24 @@
-﻿using HelpUp.Shared.ValueObject;
+﻿using Flunt.Validations;
+using HelpUp.Shared.ValueObject;
 namespace HelpUp.Domain.ValueObjects;
 
 public class Address : ValueObject
 {
-    public Address(string city, string street, string neighborhood, int number, string? references)
+    public Address(string city, string street, string neighborhood, int number, string? references, string state)
     {
         City = city;
         Street = street;
         Neighborhood = neighborhood;
         Number = number;
         References = references;
+        State = state;
+
+        AddNotifications(new Contract<Address>()
+            .Requires()
+            .IsNotNullOrEmpty(City, "Address.City", "A cidade não pode ser vazia")
+            .IsNotNullOrEmpty(Street, "Address.Street", "A rua não pode ser vazia")
+            .IsNotNullOrEmpty(Neighborhood, "Address.Neighborhood", "O bairro não pode estar vazio")
+            .IsNotNullOrEmpty(State, "Address.State", "O estado não pode estar vazio"));
     }
 
     public string City { get; private set; }

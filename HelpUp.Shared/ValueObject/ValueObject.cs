@@ -1,6 +1,8 @@
-﻿namespace HelpUp.Shared.ValueObject;
+﻿using Flunt.Notifications;
 
-public abstract class ValueObject
+namespace HelpUp.Shared.ValueObject;
+
+public abstract class ValueObject : Notifiable<Notification>
 {
 
 }
