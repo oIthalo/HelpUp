@@ -32,4 +32,3 @@ public class PhoneNumberTests
         Assert.AreEqual("(75) 99130-2860", nmb.ToString());
     }
 }
-}

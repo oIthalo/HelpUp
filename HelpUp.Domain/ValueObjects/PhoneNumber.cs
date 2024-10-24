@@ -13,7 +13,7 @@ public class PhoneNumber : ValueObject
             .Requires()
             .IsNotNullOrEmpty(Number, "PhoneNumber.Number", "Número de contato não pode estar vazio"));
 
-        if (!IsValidNumber(Number))
+        if (!IsValidNumber(Number)) 
             AddNotification("PhoneNumber.Number", "Número de contato inválido");
     }
 
