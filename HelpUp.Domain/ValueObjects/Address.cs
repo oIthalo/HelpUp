@@ -34,10 +34,8 @@ public class Address : ValueObject
     public int Number { get; private set; }
     public string? References { get; private set; }
 
-    private string AdjustCep(string cep)
-    {
-        return new string(cep.Where(char.IsDigit).ToArray());
-    }
+    private string AdjustCep(string cep) =>
+        new string(cep.Where(char.IsDigit).ToArray());
 
     private bool IsValidCep(string cep)
     {

@@ -6,7 +6,7 @@ public class User : Entity
 {
     private readonly IList<Donation> _donations;
 
-    public User(FullName name, Email email, string password, PhoneNumber phoneNumber, Address address)
+    public User(FullName name, Email email, Password password, PhoneNumber phoneNumber, Address address)
     {
         Name = name;
         Email = email;
@@ -14,17 +14,16 @@ public class User : Entity
         PhoneNumber = phoneNumber;
         Address = address;
         _donations = new List<Donation>();
+
+        AddNotifications(name, email, password, phoneNumber, address);
     }
 
     public FullName Name { get; private set; }
     public Email Email { get; private set; }
-    public string Password { get; private set; }
+    public Password Password { get; private set; }
     public PhoneNumber PhoneNumber { get; private set; }
     public Address Address { get; private set; }
     public IReadOnlyCollection<Donation> Donations => _donations.ToArray();
 
-    public override string ToString()
-    {
-        return $"{Name}";
-    }
+    public override string ToString() => Name.ToString();
 }

@@ -15,8 +15,5 @@ public class Description : ValueObject
 
     public string Desc { get; private set; }
 
-    public override string ToString()
-    {
-        return Desc;
-    }
+    public override string ToString() => Desc;
 }

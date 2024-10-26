@@ -6,27 +6,26 @@ public class Campaign : Entity
 {
     private readonly IList<Donation> _donations;
 
-    public Campaign(SingleName name, Description description, DateTime startDate, DateTime endDate, decimal fundraisingGoal, decimal amountRaised)
+    public Campaign(SingleName name, Description description, DateRange dates, Money fundraisingGoal, bool active)
     {
         Name = name;
         Description = description;
-        StartDate = DateTime.Now;
-        EndDate = endDate;
+        DateRanges = dates;
         FundraisingGoal = fundraisingGoal;
-        AmountRaised = amountRaised;
+        AmountRaised = new Money(0);
+        IsActive = true;
         _donations = new List<Donation>();
+
+        AddNotifications(name, description, dates, fundraisingGoal);
     }
 
     public SingleName Name { get; private set; }
     public Description Description { get; private set; }
-    public DateTime StartDate { get; private set; }
-    public DateTime EndDate { get; private set; }
-    public decimal FundraisingGoal { get; private set; }
-    public decimal AmountRaised { get; private set; }
+    public DateRange DateRanges { get; private set; }
+    public Money FundraisingGoal { get; private set; }
+    public Money AmountRaised { get; private set; }
+    public bool IsActive { get; private set; }
     public IReadOnlyCollection<Donation> Donations => _donations.ToArray();
 
-    public override string ToString()
-    {
-        return $"{Name}, {Description}";
-    }
+    public override string ToString() => $"{Name}, {Description}";
 }

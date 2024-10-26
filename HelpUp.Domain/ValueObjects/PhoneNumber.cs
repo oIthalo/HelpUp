@@ -29,8 +29,5 @@ public class PhoneNumber : ValueObject
     private bool IsValidNumber(string number) =>
             Regex.IsMatch(number, @"^\(\d{2}\) \d{5}-\d{4}$");
 
-    public override string ToString()
-    {
-        return Number;
-    }
+    public override string ToString() => Number;
 }

@@ -12,13 +12,10 @@ public class SingleName : ValueObject
             .Requires()
             .IsNotNullOrEmpty(Name, "SingleName.Name", "Nome não pode estar vazio")
             .IsGreaterThan(Name.Length, 3, "SingleName.Name", "Nome deve ter pelo menos 3 caracteres")
-            .IsLowerThan(Name.Length, 24, "SingleName.Name", "Nome deve ter no máximo 24 caracteres"));
+            .IsLowerThan(Name.Length, 25, "SingleName.Name", "Nome deve ter no máximo 24 caracteres"));
     }
 
     public string Name { get; private set; }
 
-    public override string ToString()
-    {
-        return Name;
-    }
+    public override string ToString() => Name;
 }
