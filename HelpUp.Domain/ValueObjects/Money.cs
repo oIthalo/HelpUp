@@ -16,5 +16,5 @@ public class Money : ValueObject
 
     public decimal Amount { get; private set; }
 
-    public override string ToString() => Amount.ToString("C");
+    public override string ToString() => Amount.ToString();
 }

@@ -37,7 +37,7 @@ public class ONG : Entity
     public FullName Founder { get; private set; }
     public IReadOnlyCollection<Campaign> Campaigns => _campaigns.ToArray();
 
-    private void CreateCampaign(Campaign campaign)
+    public void CreateCampaign(Campaign campaign)
     {
         if (campaign == null)
         {
@@ -54,6 +54,16 @@ public class ONG : Entity
         }
 
         _campaigns.Add(campaign);
+    }
+
+    public void RemoveCampaign(Guid id)
+    {
+        var campaign = _campaigns.FirstOrDefault(x => x.Id.Equals(id));
+
+        if (campaign is null)
+            AddNotification("Campaign.Campaign", "Campanha não pode ser nula");
+
+        _campaigns.Remove(campaign!);
     }
 
     public override string ToString() => Name.ToString();

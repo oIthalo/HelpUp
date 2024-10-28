@@ -4,6 +4,13 @@ namespace HelpUp.Domain.ValueObjects;
 
 public class FullName : ValueObject
 {
+    public FullName(string fullname)
+    {
+        var name = fullname.ToString().Split(" ");
+        FirstName = name[0];
+        LastName = name[1];
+    }
+
     public FullName(string firstName, string lastName)
     {
         FirstName = firstName;

@@ -4,13 +4,13 @@ namespace HelpUp.Domain.ValueObjects;
 
 public class Address : ValueObject
 {
-    public Address(string cep, string city, string street, string neighborhood, int number, string? references, string state)
+    public Address(string cep, string state, string city, string neighborhood, string street, int number, string? references)
     {
         CEP = AdjustCep(cep);
         State = state;
         City = city;
-        Street = street;
         Neighborhood = neighborhood;
+        Street = street;
         Number = number;
         References = references;
 
@@ -34,8 +34,7 @@ public class Address : ValueObject
     public int Number { get; private set; }
     public string? References { get; private set; }
 
-    private string AdjustCep(string cep) =>
-        new string(cep.Where(char.IsDigit).ToArray());
+    private string AdjustCep(string cep) => new string(cep.Where(char.IsDigit).ToArray());
 
     private bool IsValidCep(string cep)
     {

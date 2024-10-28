@@ -26,8 +26,7 @@ public class PhoneNumber : ValueObject
         return Regex.Replace(digitsOnly, @"(\d{2})(\d{5})(\d{4})", "($1) $2-$3");
     }
 
-    private bool IsValidNumber(string number) =>
-            Regex.IsMatch(number, @"^\(\d{2}\) \d{5}-\d{4}$");
+    private bool IsValidNumber(string number) => Regex.IsMatch(number, @"^\(\d{2}\) \d{5}-\d{4}$");
 
     public override string ToString() => Number;
 }
