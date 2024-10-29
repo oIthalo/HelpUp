@@ -13,10 +13,10 @@ public class Name : ValueObject
         AddNotifications(new Contract<Name>()
             .Requires()
             .IsNotNullOrEmpty(FirstName, "Name.FirstName", "Nome não pode estar vazio")
-            .IsGreaterThan(FirstName.Length, 3, "Name.FirstName", "Nome deve ter pelo menos 2 caracteres")
+            .IsGreaterThan(FirstName.Length, 2, "Name.FirstName", "Nome deve ter pelo menos 3 caracteres")
             .IsLowerThan(FirstName.Length, 24, "Name.FirstName", "Nome deve ter no máximo 24 caracteres")
             .IsNotNullOrEmpty(LastName, "Name.LastName", "Sobrenome não pode estar vazio")
-            .IsGreaterThan(LastName.Length, 3, "Name.FirstName", "Nome deve ter pelo menos 2 caracteres")
+            .IsGreaterThan(LastName.Length, 2, "Name.FirstName", "Nome deve ter pelo menos 2 caracteres")
             .IsLowerThan(LastName.Length, 36, "Name.FirstName", "Nome deve ter no máximo 100 caracteres"));
     }
 
@@ -28,10 +28,10 @@ public class Name : ValueObject
         AddNotifications(new Contract<Name>()
             .Requires()
             .IsNotNullOrEmpty(FirstName, "Name.FirstName", "Nome não pode estar vazio")
-            .IsGreaterThan(FirstName.Length, 3, "Name.FirstName", "Nome deve ter pelo menos 2 caracteres")
+            .IsGreaterThan(FirstName.Length, 2, "Name.FirstName", "Nome deve ter pelo menos 3 caracteres")
             .IsLowerThan(FirstName.Length, 24, "Name.FirstName", "Nome deve ter no máximo 24 caracteres")
             .IsNotNullOrEmpty(LastName, "Name.LastName", "Sobrenome não pode estar vazio")
-            .IsGreaterThan(LastName.Length, 3, "Name.FirstName", "Nome deve ter pelo menos 2 caracteres")
+            .IsGreaterThan(LastName.Length, 2, "Name.FirstName", "Nome deve ter pelo menos 3 caracteres")
             .IsLowerThan(LastName.Length, 36, "Name.FirstName", "Nome deve ter no máximo 100 caracteres"));
     }
 
