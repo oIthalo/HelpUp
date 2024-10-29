@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpUp.Api", "HelpUp.Api\HelpUp.Api.csproj", "{AF2C7898-1120-4FBA-A3D6-DC8301FC462E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelpUp.Api", "HelpUp.Api\HelpUp.Api.csproj", "{AF2C7898-1120-4FBA-A3D6-DC8301FC462E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpUp.Domain", "HelpUp.Domain\HelpUp.Domain.csproj", "{1E8AEBF1-6EC3-4800-BFEF-A43E4E6E0192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelpUp.Domain", "HelpUp.Domain\HelpUp.Domain.csproj", "{1E8AEBF1-6EC3-4800-BFEF-A43E4E6E0192}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpUp.Shared", "HelpUp.Shared\HelpUp.Shared.csproj", "{34AED0F0-654B-4BF3-B7D6-316D03EB7FD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelpUp.Shared", "HelpUp.Shared\HelpUp.Shared.csproj", "{34AED0F0-654B-4BF3-B7D6-316D03EB7FD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpUp.Infra", "HelpUp.Infra\HelpUp.Infra.csproj", "{6E3AE22F-FD26-4818-AAEF-BC8244AEBB05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelpUp.Infra", "HelpUp.Infra\HelpUp.Infra.csproj", "{6E3AE22F-FD26-4818-AAEF-BC8244AEBB05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpUp.Tests", "HelpUp.Tests\HelpUp.Tests.csproj", "{637FEAFC-4A66-48F2-89FF-EA6A6CA20710}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelpUp.Tests", "HelpUp.Tests\HelpUp.Tests.csproj", "{637FEAFC-4A66-48F2-89FF-EA6A6CA20710}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

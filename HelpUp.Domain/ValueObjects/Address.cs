@@ -20,10 +20,8 @@ public class Address : ValueObject
             .IsNotNullOrEmpty(Street, "Address.Street", "A rua não pode ser vazia")
             .IsNotNullOrEmpty(Neighborhood, "Address.Neighborhood", "O bairro não pode estar vazio")
             .IsNotNullOrEmpty(State, "Address.State", "O estado não pode estar vazio")
-            .IsGreaterThan(Number, 0, "Address.Number", "O número residencial não pode ser negativo"));
-
-        if (!IsValidCep(CEP)) 
-            AddNotification("Address.CEP", "CEP inválido");
+            .IsGreaterThan(Number, 0, "Address.Number", "O número residencial não pode ser negativo")
+            .IsTrue(IsValidCep(CEP), "Address.CEP", "CEP inválido"));
     }
 
     public string CEP { get; private set; }

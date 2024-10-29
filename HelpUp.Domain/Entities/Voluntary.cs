@@ -6,7 +6,7 @@ public class Voluntary : Entity
 {
     private readonly IList<ONG> _ongs;
 
-    public Voluntary(FullName name, Email email, PhoneNumber phoneNumber, IList<ONG> oNGS)
+    public Voluntary(Name name, Email email, PhoneNumber phoneNumber, IList<ONG> oNGS)
     {
         Name = name;
         Email = email;
@@ -16,7 +16,7 @@ public class Voluntary : Entity
         AddNotifications(name, email, phoneNumber);
     }
 
-    public FullName Name { get; private set; }
+    public Name Name { get; private set; }
     public Email Email { get; private set; }
     public PhoneNumber PhoneNumber { get; private set; }
     public IReadOnlyCollection<ONG> ONGS => _ongs.ToArray();

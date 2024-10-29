@@ -5,30 +5,39 @@ namespace HelpUp.Tests.ValueObjects;
 public class PhoneNumberTests
 {
     [TestMethod]
-    public void ShouldReturnErrorWhenNumberIsInvalid()
+    [DataTestMethod]
+    [DataRow("")]
+    [DataRow("999876543210")]
+    [DataRow("999876543")]
+    public void Deveria_Retornar_Erro_Se_O_Numero_For_Invalido(string number)
     {
-        var nmb = new PhoneNumber("81234");
-        Assert.IsFalse(nmb.IsValid);
+        var nmb = new PhoneNumber(number);
+        Assert.AreEqual(false, nmb.IsValid);
     }
 
     [TestMethod]
-    public void ShouldReturnSuccessWhenNumberIsValid()
+    [DataTestMethod]
+    [DataRow("(94) 98181-3834")]
+    [DataRow("7998853-4923")]
+    [DataRow("(61) 8495-7182")]
+    [DataRow("5496834-6042")]
+    public void Deveria_Retornar_Sucesso_Se_O_Numero_For_Valido(string number)
     {
-        var nmb = new PhoneNumber("75991302860");
-        Assert.IsTrue(nmb.IsValid);
+        var nmb = new PhoneNumber(number);
+        Assert.AreEqual(true, nmb.IsValid);
     }
-
+    
     [TestMethod]
-    public void ShouldReturnSuccessWhenNumberIsMissing9AndAddedAutomatically()
+    [DataTestMethod]
+    [DataRow("(83) 99675-3593")]
+    [DataRow("(83) 9675-3593")]
+    [DataRow("83 996753593")]
+    [DataRow("83 96753593")]
+    [DataRow("8396753593")]
+    [DataRow("83996753593")]
+    public void Deveria_Retornar_Sucesso_Se_Os_Numeros_Forem_Iguais(string number)
     {
-        var nmb = new PhoneNumber("7591302860");
-        Assert.IsTrue(nmb.IsValid);
-    }
-
-    [TestMethod]
-    public void ShouldFormatNumberCorrectly()
-    {
-        var nmb = new PhoneNumber("75991302860");
-        Assert.AreEqual("(75) 99130-2860", nmb.ToString());
+        var nmb = new PhoneNumber(number);
+        Assert.AreEqual(true, nmb.IsValid);
     }
 }

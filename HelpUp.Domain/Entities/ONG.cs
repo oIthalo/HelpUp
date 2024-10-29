@@ -1,5 +1,4 @@
-﻿using Flunt.Validations;
-using HelpUp.Domain.ValueObjects;
+﻿using HelpUp.Domain.ValueObjects;
 using HelpUp.Shared.Entities;
 namespace HelpUp.Domain.Entities;
 
@@ -7,12 +6,11 @@ public class ONG : Entity
 {
     private readonly IList<Campaign> _campaigns;
 
-    public ONG(SingleName name, Description description, Document cNPJ, CEP cEP, Address address, FoundationDate foundationDate, PhoneNumber contactNumber, Email email, Category category, FullName founder)
+    public ONG(Name name, Description description, Document cNPJ, Address address, FoundationDate foundationDate, PhoneNumber contactNumber, Email email, Category category, Name founder)
     {
         Name = name;
         Description = description;
         CNPJ = cNPJ;
-        CEP = cEP;
         Address = address;
         FoundationDate = foundationDate;
         ContactNumber = contactNumber;
@@ -21,20 +19,18 @@ public class ONG : Entity
         Founder = founder;
         _campaigns = new List<Campaign>();
 
-        AddNotifications(name, description, cNPJ, cEP, address, foundationDate, contactNumber, email, category, founder, new Contract<ONG>()
-                .IsLowerOrEqualsThan(_campaigns.Count(c => c.IsActive), 5, "ONG.Campaigns", "Uma ONG pode ter no máximo 5 campanhas ativas."));
+        AddNotifications(name, description, cNPJ, address, foundationDate, contactNumber, email, category, founder);
     }
 
-    public SingleName Name { get; private set; }
+    public Name Name { get; private set; }
     public Description Description { get; private set; }
     public Document CNPJ { get; private set; }
-    public CEP CEP { get; private set; }
     public Address Address { get; private set; }
     public FoundationDate FoundationDate { get; private set; }
     public PhoneNumber ContactNumber { get; private set; }
     public Email Email { get; private set; }
     public Category Category { get; private set; }
-    public FullName Founder { get; private set; }
+    public Name Founder { get; private set; }
     public IReadOnlyCollection<Campaign> Campaigns => _campaigns.ToArray();
 
     public void CreateCampaign(Campaign campaign)

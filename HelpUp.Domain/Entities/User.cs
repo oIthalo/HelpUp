@@ -6,7 +6,7 @@ public class User : Entity
 {
     private readonly IList<Donation> _donations;
 
-    public User(FullName name, Email email, Password password, PhoneNumber phoneNumber, Address address)
+    public User(Name name, Email email, Password password, PhoneNumber phoneNumber, Address address)
     {
         Name = name;
         Email = email;
@@ -18,7 +18,7 @@ public class User : Entity
         AddNotifications(name, email, password, phoneNumber, address);
     }
 
-    public FullName Name { get; private set; }
+    public Name Name { get; private set; }
     public Email Email { get; private set; }
     public Password Password { get; private set; }
     public PhoneNumber PhoneNumber { get; private set; }

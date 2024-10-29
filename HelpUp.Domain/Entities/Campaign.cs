@@ -6,7 +6,7 @@ public class Campaign : Entity
 {
     private readonly IList<Donation> _donations;
 
-    public Campaign(SingleName name, Description description, DateRange dates, Money fundraisingGoal, bool active)
+    public Campaign(Name name, Description description, DateRange dates, Money fundraisingGoal)
     {
         Name = name;
         Description = description;
@@ -19,7 +19,7 @@ public class Campaign : Entity
         AddNotifications(name, description, dates, fundraisingGoal);
     }
 
-    public SingleName Name { get; private set; }
+    public Name Name { get; private set; }
     public Description Description { get; private set; }
     public DateRange DateRanges { get; private set; }
     public Money FundraisingGoal { get; private set; }
